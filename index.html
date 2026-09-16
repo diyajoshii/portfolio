@@ -1,4 +1,11 @@
-<title>Diya Joshi</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diya Joshi — Embedded Firmware, Data &amp; Product</title>
+<meta name="description" content="Diya Joshi — B.Tech ICE at NSUT ’27. Embedded firmware in Rust and C, data and ML, and product. Every project states how it was checked.">
+<meta name="theme-color" content="#0A0A0D">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:opsz,ital,wght@8..60,0,400;8..60,0,600;8..60,1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
 
 <style>
@@ -140,6 +147,17 @@
   .xp li::marker{color:var(--accent-3)}
   .xp li b{color:var(--ink); font-weight:600}
 
+  .feat{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; text-decoration:none;
+    margin-top:16px; padding:11px 14px; border:1px solid var(--line);
+    border-left:2px solid var(--accent); background:var(--surface-2);
+    transition:border-color .15s ease, background .15s ease}
+  .feat:hover{border-color:var(--accent); background:var(--accent-soft)}
+  .feat-k{font-family:var(--mono); font-size:9.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--accent-2); white-space:nowrap}
+  .feat-v{font-size:.95rem; color:var(--ink-2); flex:1; min-width:200px}
+  .feat-go{font-family:var(--mono); font-size:10.5px; letter-spacing:.07em; text-transform:uppercase;
+    color:var(--accent); white-space:nowrap}
+
   /* ---------- work ---------- */
   .filters{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:22px}
   .chip{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
@@ -213,6 +231,8 @@
   @keyframes rise{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none}}
   @media(prefers-reduced-motion:reduce){.rise{animation:none} .btn{transition:none}}
 </style>
+</head>
+<body>
 
 <div class="bar">
   <div class="wrap bar-in">
@@ -231,7 +251,7 @@
 <header class="hero wrap">
   <div class="hero-grid">
     <div class="rise">
-      <div class="label pink">Embedded Firmware &middot; Product &amp; Data</div>
+      <div class="label pink">Embedded firmware &middot; Data &middot; Product</div>
       <h1>I build things that <em>show their work.</em></h1>
       <p class="lede">
         Firmware you can test with no hardware on the bench. A model that reports how often it
@@ -252,11 +272,11 @@
 
 <div class="wrap">
   <div class="ev">
-    <div class="ev-cell"><b>91%</b><span>Line coverage<br>MPU-6050 driver</span></div>
+    <div class="ev-cell"><b>91%</b><span>Line coverage<br>MPU-6050 Rust driver</span></div>
+    <div class="ev-cell"><b>50%</b><span>Firmware footprint cut<br>2.2 &rarr; 1.1 MB at TI</span></div>
     <div class="ev-cell"><b>1.973</b><span>mg/dL MAE<br>PPG glucose model</span></div>
-    <div class="ev-cell"><b>96.1%</b><span>Inside &plusmn;15 mg/dL<br>clinical band</span></div>
-    <div class="ev-cell"><b>50%</b><span>Firmware footprint cut<br>2.2 &rarr; 1.1 MB</span></div>
-    <div class="ev-cell"><b>0</b><span>Client changes<br>after C&rarr;Rust rewrite</span></div>
+    <div class="ev-cell"><b>&#8377;12.06 Cr</b><span>Overstatement found<br>collections audit</span></div>
+    <div class="ev-cell"><b>5 &rarr; 45%</b><span>Onboarding conversion<br>consumer product</span></div>
   </div>
 </div>
 
@@ -276,6 +296,11 @@
         <li>Wrote <b>100+ test cases</b> at 90%+ coverage; validated connectivity with ping and iperf.</li>
         <li>Preserved the external interface across <b>3 client types</b>, so every existing integration ran after the rewrite with zero changes.</li>
       </ul>
+      <a class="feat" href="https://www.linkedin.com/posts/meet-diya-an-embedded-software-engineering-ugcPost-7495844578382680064-q4nB/" target="_blank" rel="noopener">
+        <span class="feat-k">Featured</span>
+        <span class="feat-v">A day in the life of an embedded software engineering intern &mdash; filmed for Texas Instruments&rsquo; global LinkedIn page.</span>
+        <span class="feat-go">Watch &rarr;</span>
+      </a>
     </article>
 
     <article class="xp">
@@ -307,16 +332,43 @@
 </section>
 
 <section id="work" class="wrap">
-  <div class="sec-head"><h2>Selected work</h2><div class="fill"></div><span class="label pink">Five projects</span></div>
+  <div class="sec-head"><h2>Selected work</h2><div class="fill"></div><span class="label pink">Seven projects</span></div>
   <div class="filters" role="group" aria-label="Filter projects">
-    <button class="chip" id="f-all"  data-f="all"      aria-pressed="true">All</button>
-    <button class="chip" id="f-emb"  data-f="embedded" aria-pressed="false">Embedded &amp; systems</button>
-    <button class="chip" id="f-prod" data-f="product"  aria-pressed="false">Product &amp; data</button>
+    <button class="chip" data-f="all"      aria-pressed="true">All</button>
+    <button class="chip" data-f="embedded" aria-pressed="false">Embedded &amp; firmware</button>
+    <button class="chip" data-f="data"     aria-pressed="false">Data &amp; ML</button>
+    <button class="chip" data-f="product"  aria-pressed="false">Product</button>
   </div>
 
   <div class="work" id="worklist">
 
     <article class="spec" data-cat="embedded">
+      <div class="spec-top">
+        <h3>MPU-6050 no_std Rust Driver</h3>
+        <span class="tagpill">Published crate</span>
+        <div class="spec-links"><a href="https://crates.io/crates/mpu6050-nostd" target="_blank" rel="noopener">crates.io &rarr;</a><a href="https://github.com/diyajoshii/Rust" target="_blank" rel="noopener">Repository &rarr;</a></div>
+      </div>
+      <div class="fields">
+        <div class="field">
+          <div class="label">Problem</div>
+          <p>A <code>no_std</code> crate targets an RTOS with no heap and no OS &mdash; and Rust&rsquo;s test runner needs <code>std</code>. Nothing in the firmware could be tested at all without the board on the desk.</p>
+        </div>
+        <div class="field">
+          <div class="label">What I did</div>
+          <p>Wrote the I2C driver register by register from the InvenSense datasheet &mdash; 1024-byte FIFO, config-derived packet sizing, overflow recovery &mdash; then built a mock I2C bus with transaction logging and five injectable fault modes.</p>
+        </div>
+        <div class="field checked">
+          <div class="label">How it was checked</div>
+          <p><b>48 tests at 91% line coverage</b>, with NACK, bus-stuck, corrupt-byte, wrong-device and FIFO-overflow faults injected deliberately. Verified on silicon against a logic-analyser capture at <b>12&nbsp;KB flash</b>.</p>
+        </div>
+        <div class="field">
+          <div class="label">Built with</div>
+          <div class="chips"><span class="chip-s">Rust</span><span class="chip-s">embedded-hal 1.0</span><span class="chip-s">I2C</span><span class="chip-s">TI TM4C123G</span><span class="chip-s">crates.io</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="spec" data-cat="embedded data">
       <div class="spec-top">
         <h3>PPG Blood Glucose Estimation</h3>
         <span class="tagpill">Edge ML</span>
@@ -342,33 +394,59 @@
       </div>
     </article>
 
-    <article class="spec" data-cat="embedded">
+    <article class="spec" data-cat="data">
       <div class="spec-top">
-        <h3>MPU-6050 no_std Rust Driver</h3>
-        <span class="tagpill">Published crate</span>
-        <div class="spec-links"><a href="https://github.com/diyajoshii/Rust" target="_blank" rel="noopener">Repository &rarr;</a></div>
+        <h3>CredResolve</h3>
+        <span class="tagpill">Data forensics</span>
+        <div class="spec-links"><a href="https://github.com/diyajoshii/CredResolve-analysis" target="_blank" rel="noopener">Repository &rarr;</a></div>
       </div>
       <div class="fields">
         <div class="field">
           <div class="label">Problem</div>
-          <p>A <code>no_std</code> crate targets an RTOS with no heap and no OS &mdash; and Rust&rsquo;s test runner needs <code>std</code>. Nothing in the firmware could be tested at all without the board on the desk.</p>
+          <p>A collections team reported recovery up 11% month on month. Before anyone funds whatever caused it, somebody has to check whether the number is real.</p>
         </div>
         <div class="field">
           <div class="label">What I did</div>
-          <p>Wrote the I2C driver register by register from the InvenSense datasheet &mdash; 1024-byte FIFO, config-derived packet sizing, overflow recovery &mdash; then built a mock I2C bus with transaction logging and five injectable fault modes.</p>
+          <p>Rebuilt recovery from 17 raw CSVs as a reproducible pipeline &mdash; profiling, dedup and reversal rules, an as-of joined golden dataset &mdash; then wrote the same logic as production-shaped SQL, with data-quality assertions that gate publication.</p>
         </div>
         <div class="field checked">
           <div class="label">How it was checked</div>
-          <p><b>48 tests at 91% line coverage</b>, with NACK, bus-stuck, corrupt-byte, wrong-device and FIFO-overflow faults injected deliberately. Verified on silicon against a logic-analyser capture at <b>12&nbsp;KB flash</b>.</p>
+          <p>The rise was the calendar: a 31-day March beside a 28-day February accounts for <b>10.7 of the 11.0 points</b>. Net recovery was flat at <b>&#8377;0.555 Cr/day</b> (CV 2.0%, trend p&nbsp;=&nbsp;0.11), and duplicates and reversals counted as cash overstated the total by <b>&#8377;12.06 Cr &middot; 9.9%</b>.</p>
         </div>
         <div class="field">
           <div class="label">Built with</div>
-          <div class="chips"><span class="chip-s">Rust</span><span class="chip-s">embedded-hal 1.0</span><span class="chip-s">I2C</span><span class="chip-s">TI TM4C123G</span><span class="chip-s">crates.io</span></div>
+          <div class="chips"><span class="chip-s">Python</span><span class="chip-s">SQL</span><span class="chip-s">pandas</span><span class="chip-s">Hypothesis testing</span><span class="chip-s">Difference-in-differences</span></div>
         </div>
       </div>
     </article>
 
-    <article class="spec" data-cat="product">
+    <article class="spec" data-cat="data">
+      <div class="spec-top">
+        <h3>Prahar</h3>
+        <span class="tagpill">Razorpay AI Buildathon</span>
+        <div class="spec-links"><a href="https://github.com/diyajoshii/Prahar-RazorpayAIbuildathon" target="_blank" rel="noopener">Repository &rarr;</a></div>
+      </div>
+      <div class="fields">
+        <div class="field">
+          <div class="label">Problem</div>
+          <p>A failed recurring debit in India gets a hard-capped number of NPCI retry attempts. Retry at the wrong hour and the attempt is spent on an account that was never going to have money in it.</p>
+        </div>
+        <div class="field">
+          <div class="label">What I did</div>
+          <p>Built an agent that decides whether, when and how to retry &mdash; a hazard model of when the payer is actually likely to be funded, run against the cap on attempts rather than a fixed schedule.</p>
+        </div>
+        <div class="field checked">
+          <div class="label">How it was checked</div>
+          <p>Evaluated by simulation with <b>per-component ablations</b>, and the write-up reports the metric that regressed next to the ones that improved.</p>
+        </div>
+        <div class="field">
+          <div class="label">Built with</div>
+          <div class="chips"><span class="chip-s">Python</span><span class="chip-s">Hazard models</span><span class="chip-s">Simulation</span><span class="chip-s">Ablations</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="spec" data-cat="data product">
       <div class="spec-top">
         <h3>AURA</h3>
         <span class="tagpill">RAG</span>
@@ -394,7 +472,7 @@
       </div>
     </article>
 
-    <article class="spec" data-cat="product">
+    <article class="spec" data-cat="data product">
       <div class="spec-top">
         <h3>Prodessy</h3>
         <span class="tagpill">IIM Indore Prodyssey &middot; Finalist</span>
@@ -470,10 +548,10 @@
       <div class="chips"><span class="chip-s">Rust</span><span class="chip-s">C / C++</span><span class="chip-s">Python</span><span class="chip-s">SQL</span></div></div>
     <div class="stack-col"><h3>Embedded</h3>
       <div class="chips"><span class="chip-s">embedded-hal</span><span class="chip-s">I2C</span><span class="chip-s">FIFO / DMA</span><span class="chip-s">RTOS</span><span class="chip-s">bindgen FFI</span><span class="chip-s">cross-compilation</span><span class="chip-s">firmware validation</span><span class="chip-s">logic-analyser debug</span></div></div>
-    <div class="stack-col"><h3>AI / ML</h3>
-      <div class="chips"><span class="chip-s">RAG</span><span class="chip-s">Vector search (Qdrant)</span><span class="chip-s">LLM APIs</span><span class="chip-s">NLP</span><span class="chip-s">Feature engineering</span><span class="chip-s">LightGBM</span><span class="chip-s">AutoML</span><span class="chip-s">Pandas</span><span class="chip-s">NumPy</span></div></div>
+    <div class="stack-col"><h3>Data &amp; ML</h3>
+      <div class="chips"><span class="chip-s">Pandas</span><span class="chip-s">NumPy</span><span class="chip-s">Hypothesis testing</span><span class="chip-s">Causal inference</span><span class="chip-s">Feature engineering</span><span class="chip-s">LightGBM</span><span class="chip-s">AutoML</span><span class="chip-s">SHAP</span><span class="chip-s">Quantisation</span><span class="chip-s">RAG</span><span class="chip-s">Vector search (Qdrant)</span><span class="chip-s">LLM APIs</span><span class="chip-s">NLP</span></div></div>
     <div class="stack-col"><h3>Product &amp; analysis</h3>
-      <div class="chips"><span class="chip-s">Requirement specification</span><span class="chip-s">User research</span><span class="chip-s">Scoping &amp; prioritisation</span><span class="chip-s">Funnel &amp; retention analysis</span><span class="chip-s">Power BI</span><span class="chip-s">Jira</span><span class="chip-s">Miro</span></div></div>
+      <div class="chips"><span class="chip-s">Requirement specification</span><span class="chip-s">User research</span><span class="chip-s">Scoping &amp; prioritisation</span><span class="chip-s">Funnel &amp; retention analysis</span><span class="chip-s">Power BI</span><span class="chip-s">Tableau</span><span class="chip-s">Jira</span><span class="chip-s">Miro</span></div></div>
   </div>
 </section>
 
@@ -507,7 +585,7 @@
 
 <section id="contact" class="wrap contact">
   <div class="label pink">Let&rsquo;s talk</div>
-  <h2>Open to embedded firmware and product roles.</h2>
+  <h2>Open to embedded firmware, data and product roles.</h2>
   <p class="lede">Final year at NSUT, graduating 2027 &mdash; my college permits full-time employment, and I&rsquo;m able to relocate.</p>
   <div class="links">
     <a class="btn pri" href="mailto:diyajoshi1909@gmail.com">diyajoshi1909@gmail.com</a>
@@ -545,9 +623,13 @@
         var f=c.getAttribute('data-f');
         chips.forEach(function(x){ x.setAttribute('aria-pressed', String(x===c)); });
         cards.forEach(function(card){
-          card.hidden = !(f==='all' || card.getAttribute('data-cat')===f);
+          var cats=(card.getAttribute('data-cat')||'').split(/\s+/);
+          card.hidden = !(f==='all' || cats.indexOf(f)>-1);
         });
       });
     });
   })();
 </script>
+
+</body>
+</html>
