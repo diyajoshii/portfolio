@@ -8,7 +8,9 @@ Dark by default, with a light theme that follows your system setting and a toggl
 
 ## Sections
 
-Work · Selected projects · Stack · Leadership · Recognition · Contact
+Experience · Selected work · Stack · Leadership · Recognition · Contact
+
+Seven projects, filterable by lane — embedded & firmware, data & ML, product — so a reader sees the work relevant to them rather than all of it. Every project states how it was checked, not just what it does.
 
 ## Running it
 
@@ -17,3 +19,7 @@ open index.html
 ```
 
 That's it.
+
+## Deploying
+
+Pushes to `main` deploy automatically to Vercel. There is nothing to build — `index.html` is served from the repository root.
